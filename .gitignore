@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+.ipynb_checkpoints/
+
+*.pyc
+*.pyo
+
+.vscode/
+
+.DS_Store
+Thumbs.db
+
+data/creditcard.csv
