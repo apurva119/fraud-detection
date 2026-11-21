@@ -1,25 +1,36 @@
-# 💳 Credit Card Fraud Detection using Machine Learning
+# 💳 Credit Card Fraud Detection API
 
-## 📌 Overview
+A Machine Learning-powered REST API built with **FastAPI** that detects fraudulent credit card transactions in real time.
 
-This project detects fraudulent credit card transactions using Machine Learning models and exposes predictions through a FastAPI REST API.
+## 🚀 Live Demo
 
-The project compares multiple classification algorithms and selects the best-performing model based on evaluation metrics.
+- **API:** https://fraud-detection-41y3.onrender.com/
+- **Swagger Docs:** https://fraud-detection-41y3.onrender.com/docs
 
 ---
 
-## 🚀 Features
+## 📌 Project Overview
 
-- Exploratory Data Analysis (EDA)
-- Data Preprocessing
-- Feature Scaling
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- XGBoost
-- Hyperparameter Tuning
-- FastAPI REST API
-- Swagger UI Documentation
+This project uses a trained Machine Learning model to classify credit card transactions as either:
+
+- ✅ Legitimate Transaction
+- 🚨 Fraudulent Transaction
+
+The model is exposed through a FastAPI REST API and deployed on Render for real-time inference.
+
+---
+
+## 🛠 Tech Stack
+
+- Python 3
+- FastAPI
+- Scikit-learn
+- Pandas
+- NumPy
+- Joblib
+- Uvicorn
+- Render
+- Git & GitHub
 
 ---
 
@@ -33,9 +44,6 @@ fraud-detection/
 ├── README.md
 ├── LICENSE
 │
-├── data/
-│   └── creditcard.csv (not included)
-│
 ├── models/
 │   ├── fraud_model.pkl
 │   └── scaler.pkl
@@ -43,66 +51,32 @@ fraud-detection/
 ├── notebooks/
 │   └── 01_eda.ipynb
 │
-├── api/
-├── dashboard/
-├── database/
-├── src/
-└── tests/
+└── data/
 ```
 
 ---
 
-## 📊 Dataset
-
-Dataset: **Credit Card Fraud Detection**
-
-Download from Kaggle:
-
-https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
-
-Place the downloaded file in:
-
-```
-data/creditcard.csv
-```
-
-> The dataset is not included in this repository because it exceeds GitHub's file size recommendations.
-
----
-
-## 🛠 Technologies Used
-
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- XGBoost
-- FastAPI
-- Uvicorn
-- Joblib
-- Matplotlib
-- Seaborn
-
----
-
-## 📈 Model Performance
-
-| Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
-|-------|---------:|----------:|-------:|---------:|--------:|
-| Logistic Regression | 99.92% | 90% | 79% | 0.84 | 0.960 |
-| Random Forest | **99.96%** | **96%** | **79%** | **0.87** | **0.963** |
-| XGBoost | 99.95% | 90% | 79% | 0.84 | 0.961 |
-
-**Selected Model:** Random Forest
-
----
-
-## ▶️ Installation
+## ⚙ Installation
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/apurva119/fraud-detection.git
+cd fraud-detection
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate it:
+
+**Windows**
+
+```powershell
+venv\Scripts\activate
 ```
 
 Install dependencies:
@@ -117,7 +91,7 @@ Run the API:
 uvicorn app:app --reload
 ```
 
-Open your browser:
+Open:
 
 ```
 http://127.0.0.1:8000/docs
@@ -125,11 +99,50 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## API Endpoint
+## 📡 API Endpoint
 
 ### POST `/predict`
 
-Returns:
+Predict whether a transaction is fraudulent.
+
+### Sample Request
+
+```json
+{
+  "Time": 0,
+  "V1": 0,
+  "V2": 0,
+  "V3": 0,
+  "V4": 0,
+  "V5": 0,
+  "V6": 0,
+  "V7": 0,
+  "V8": 0,
+  "V9": 0,
+  "V10": 0,
+  "V11": 0,
+  "V12": 0,
+  "V13": 0,
+  "V14": 0,
+  "V15": 0,
+  "V16": 0,
+  "V17": 0,
+  "V18": 0,
+  "V19": 0,
+  "V20": 0,
+  "V21": 0,
+  "V22": 0,
+  "V23": 0,
+  "V24": 0,
+  "V25": 0,
+  "V26": 0,
+  "V27": 0,
+  "V28": 0,
+  "Amount": 0
+}
+```
+
+### Sample Response
 
 ```json
 {
@@ -140,18 +153,29 @@ Returns:
 
 ---
 
-## 📌 Future Improvements
+## 📊 Features
 
-- Deploy on Render
-- Docker support
-- Streamlit Dashboard
-- CI/CD Pipeline
-- Model Monitoring
+- REST API with FastAPI
+- Machine Learning fraud detection
+- Interactive Swagger documentation
+- Render cloud deployment
+- GitHub version control
 
 ---
 
-## 👨‍💻 Author
+## 🔮 Future Improvements
 
-**Apurva Jaiswal**
+- Streamlit dashboard
+- Docker support
+- GitHub Actions (CI/CD)
+- Unit tests with Pytest
+- Model performance dashboard
+- Authentication and API keys
+
+---
+
+## 👩‍💻 Author
+
+**Apurva**
 
 GitHub: https://github.com/apurva119
