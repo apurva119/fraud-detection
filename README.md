@@ -1,9 +1,10 @@
-# 💳 Credit Card Fraud Detection API
+# 💳 Credit Card Fraud Detection System
 
-A Machine Learning-powered REST API built with **FastAPI** that detects fraudulent credit card transactions in real time.
+A Machine Learning-powered system built with **FastAPI** and **Streamlit** that detects fraudulent credit card transactions in real time.
 
 ## 🚀 Live Demo
 
+- **Streamlit Dashboard:** https://fraud-detection-uiia.streamlit.app/
 - **API:** https://fraud-detection-41y3.onrender.com/
 - **Swagger Docs:** https://fraud-detection-41y3.onrender.com/docs
 
@@ -16,7 +17,7 @@ This project uses a trained Machine Learning model to classify credit card trans
 - ✅ Legitimate Transaction
 - 🚨 Fraudulent Transaction
 
-The model is exposed through a FastAPI REST API and deployed on Render for real-time inference.
+The model is exposed through a FastAPI REST API (deployed on Render) and used by a Streamlit dashboard (deployed on Streamlit Community Cloud) where users can enter transaction details and get a prediction.
 
 ---
 
@@ -24,12 +25,14 @@ The model is exposed through a FastAPI REST API and deployed on Render for real-
 
 - Python 3
 - FastAPI
+- Streamlit
 - Scikit-learn
 - Pandas
 - NumPy
 - Joblib
 - Uvicorn
 - Render
+- Streamlit Community Cloud
 - Git & GitHub
 
 ---
@@ -47,6 +50,10 @@ fraud-detection/
 ├── models/
 │   ├── fraud_model.pkl
 │   └── scaler.pkl
+│
+├── streamlit_app/
+│   ├── app.py
+│   └── requirements.txt
 │
 ├── notebooks/
 │   └── 01_eda.ipynb
@@ -155,17 +162,18 @@ Predict whether a transaction is fraudulent.
 
 ## 📊 Features
 
+- Interactive Streamlit dashboard
+- Fraud probability score in every prediction
 - REST API with FastAPI
 - Machine Learning fraud detection
 - Interactive Swagger documentation
-- Render cloud deployment
+- Cloud deployment with Render and Streamlit Community Cloud
 - GitHub version control
 
 ---
 
 ## 🔮 Future Improvements
 
-- Streamlit dashboard
 - Docker support
 - GitHub Actions (CI/CD)
 - Unit tests with Pytest
