@@ -9,6 +9,8 @@ app = FastAPI()
 model = joblib.load("models/fraud_model.pkl")
 scaler = joblib.load("models/scaler.pkl")
 
+THRESHOLD = 0.116
+
 
 class Transaction(BaseModel):
     Time: float
@@ -47,7 +49,8 @@ class Transaction(BaseModel):
 def home():
     return {
         "message": "Fraud Detection API is running!",
-        "model": "Random Forest"
+        "model": "Random Forest",
+        "threshold": THRESHOLD
     }
 
 
@@ -57,10 +60,11 @@ def predict(transaction: Transaction):
 
     data_scaled = scaler.transform(data)
 
-    prediction = model.predict(data_scaled)[0]
     probability = model.predict_proba(data_scaled)[0][1]
+    prediction = int(probability >= THRESHOLD)
 
     return {
-        "prediction": int(prediction),
-        "fraud_probability": round(float(probability), 4)
+        "prediction": prediction,
+        "fraud_probability": round(float(probability), 4),
+        "threshold": THRESHOLD
     }
